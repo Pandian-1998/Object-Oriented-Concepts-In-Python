@@ -1,0 +1,34 @@
+#Abstractclass
+from abc import *
+class Vehicle(ABC):
+    #@abstractmethod
+    def get_no_of_Vehicles(self):
+        pass
+
+class Bus(Vehicle):
+    pass
+b=Bus()
+print(b.Vehicle)               
+
+
+##AbstractMetod
+from abc import *
+class Vehicle:
+    @abstractmethod
+    def get_no_of_Vehicles(self):
+        pass 
+
+class Fruit(Vehicle): 
+    @abstractmethod    
+    def get_taste(self):
+        pass 
+f=Fruit()    
+
+#example
+class Test:
+    __x=10
+    def __init__(self):
+        self.__y=20
+t=Test()
+print(t._Test__y)
+print(Test._Test__x)
