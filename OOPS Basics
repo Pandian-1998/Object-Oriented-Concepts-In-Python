@@ -1,0 +1,145 @@
+BASICS OF OOPS:-CLASS,METHOD,OBJECT,CONSTRUCTOR...
+
+class Student:
+    def __init__(self,name,age,rollno):
+        self.name=name
+        self.age=age
+        self.rollno=rollno
+        #print(id(self))
+
+    def details(self):
+        print("my name is",self.name)
+        print("my age is",self.age)
+        print("my rollno is",self.rollno)
+        #print(id(self))
+
+s=Student("pandian",21,258)
+s.details()
+#print(id(s)) 
+
+# sq=Student("Jack",20,248)
+# sq.details()
+
+
+#CONSTRUCTOR VS METHOD
+class Cricket:
+    def __init__(self,name,age,matches,avg):
+        self.name=name
+        self.age=age
+        self.matches=matches
+        self.avg=avg
+
+    def stats(self):
+        print("Name:",self.name)
+        print("Age:",self.age)
+        print("Matches:",self.matches)
+        print("Avg:",self.avg)
+
+numbers=[Cricket("sachin",39,16,50.4),
+        Cricket("dhoni",30,10,35.0),
+        Cricket("raina",27,16,50),
+        Cricket("shewag",35,14,39)]
+
+for i in numbers:
+    i.stats()
+
+#WITHOUT USING CONSTRUCTOR WE CAN CALL THE METHOD:
+class Cricket:
+
+    def stats(self):
+        print("Name:",self.name)
+        print("Age:",self.age)
+        print("Matches:",self.matches)
+        print("Avg:",self.avg)
+
+c=Cricket()
+c.name="sachin"
+c.age=10
+c.matches=10
+c.avg=46
+c.stats()
+
+#INSTANCE METHOD
+class Student:
+    def __init__(self,name,marks):
+        self.name=name
+        self.marks=marks
+        self.display()
+
+    def display(self):
+        print("Hi",self.name)
+        print("mark is:",self.marks)
+        self.grade()
+
+    def grade(self):
+        if self.marks>=90:
+            print("your grade is a")
+        elif self.marks>=80:
+            print("your grade is b")
+        elif self.marks>=70:
+            print("your grade is C")
+        elif self.marks>=60:
+            print("your grade is d")
+        elif self.marks>=50:
+            print("your grade is e")
+        elif self.marks>=40:
+            print("your grade is f")
+        else:
+            print("you have got Fail marks,Try to improve next time")
+
+d=Student('pandian',50)
+#print(d.student)
+
+#GETTER AND SETTER METHOD
+class Student:
+    def setName(self,name):
+        self.name=name
+
+    def getName(self):
+        return self.name
+d=Student()
+f=str(input("Enter your name:"))
+d.setName(f)
+print(d.getName())
+
+#STATIC METHOD
+class Math:
+    def add(x,y):
+        print("The sum is",x+y)
+    def sub(x,y):
+        print("The product is",x-y)
+Math.add(2,3)
+Math.sub(2,3)
+
+#PASSING MEMBERS OF ONE CLASS TO ANOTHER CLASS
+class Employee:
+    def __init__(self,empid,empname,empsalary):
+        self.empid=empid
+        self.empname=empname
+        self.empsalary=empsalary
+
+    def display(self):
+        print("ID of employee is",self.empid)
+        print("Name of employee is",self.empname)
+        print("Salary of employee is",self.empsalary)
+
+class Salary:
+    def modify(emp):
+        emp.empsalary=emp.empsalary+10000
+        emp.display()
+
+e=Employee(258,"Pandian",50000)
+Salary.modify(e)
+
+
+##GARBAGE COLLECTION
+class Garbagecollector:
+    def __init__(self):
+        print("Constructor")
+
+    def __del__(self):
+        print("Destructor")
+
+g=Garbagecollector()
+g=None       
+
