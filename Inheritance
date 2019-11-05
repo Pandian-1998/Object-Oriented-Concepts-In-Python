@@ -1,0 +1,143 @@
+#INHERITANCE-COMPOSITION
+class Car:
+    def __init__(self,name,model,color):
+        self.name=name
+        self.model=model
+        self.color=color
+
+    def getInfo(self):
+        print("Name of the car is",self.name)
+        print("model is",self.model)
+        print("color is",self.color)
+
+class employee:
+    def __init__(self,name,eno,car):
+        self.name=name
+        self.eno=eno
+        self.car=car
+
+    def employeeinfo(self):
+        print("name of employee is",self.name)
+        print("number of employee is",self.eno)
+        print("car Information")
+        self.car.getInfo()
+
+car=Car('Audi',5000,'white')
+employe=employee('pandian',258,car)
+employe.employeeinfo()
+
+#example:
+class Parent:
+    a=10
+    def __init__(self):
+        #print("parent class method")
+        self.b=20
+class Child(Parent):
+    c=30
+    #def m2(self):
+        #print("child class method")
+    def __init__(self):
+        super().__init__()
+        self.d=40
+c=Child()
+# c.m1()
+# c.m2()
+print(c.a,c.b,c.c,c.d)
+
+#SINGLE-INHERITANCE
+class Parent:
+    def m1(self):
+        print("Parent")
+class Children(Parent):
+    def m2(self):
+        print("child")
+c=Children()
+c.m1()
+c.m2()
+
+#MULTI-LEVEL INHERITANCE
+class Parent:
+    def m1(self):
+        print("Parent")
+class Children(Parent):
+    def m2(self):
+        print("child")
+
+class Childrenn(Children):
+    def m3(self):
+        print("Multi-level Inheritance")
+c=Childrenn()
+c.m1()
+c.m2()
+c.m3()
+
+#Hirearchical Inheritance
+class Parent:
+    def m1(self):
+        print("Parent")
+class Children(Parent):
+    def m2(self):
+        print("child")
+
+class Childrenn(Parent):
+    def m3(self):
+        print("Hirearchical Inheritance")
+Children=Childrenn()
+Children.m1()
+#Children.m2()
+Children.m3()
+
+#Multiple Inheritancce
+class Parent:
+    def m1(self):
+        print("Parent")
+class Parent1:
+    def m2(self):
+        print("child")
+
+class Children(Parent,Parent1):
+    def m3(self):
+        print("Multiple Inheritance")
+c=Children()
+c.m1()
+c.m2()
+c.m3()
+
+#MRO Algorithm
+class D:
+    pass
+class E:
+    pass
+class F:
+    pass
+class B(D,E):
+    pass
+class C(D,F):
+    pass
+class A(B,C):
+    pass
+print(A.mro())
+
+##SUPER METHOD
+class Person:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+
+    def display(self):
+        print("Name is",self.name)
+        print("Age is",self.age)
+        
+class Student(Person):
+    def __init__(self,name,age,rollno,marks):
+        super().__init__(name,age)
+        self.rollno=rollno
+        self.marks=marks
+
+    def display(self):
+        print("Name is",self.name)
+        print("Age is",self.age)
+        print("Roll no is",self.rollno)
+        print("Id is",self.marks)
+s=Student('pandian',21,258,98)
+s.display()
